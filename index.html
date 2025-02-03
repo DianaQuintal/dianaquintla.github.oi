@@ -1,10 +1,195 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego Diana Laura Mutul Quintal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-image: url("img/contaminacion.jpg");
+            background: rgb(51, 157, 32);
+        }
+        .game-container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .question {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        .options button {
+            display: block;
+            width: 50%;
+            margin: 10px 0;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #26a69a;
+            color: white;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .options button:hover {
+            background-color: #58a1fb;
+        }
+        #result {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+        .question-image {
+            width: 50%;
+            height: auto;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        #final-score {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        #retry-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #5501fc;
+            color: white;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        #retry-button:hover {
+            background-color: #58a1fb;
+        }
+    </style>
+</head>
 <body>
+    <div class="game-container">
+        <h1>Juego Actividad 4 Cuestionario</h1>
+        <h6>Diana Laura Mutul Quintal</h6>
+        <img id="question-image" class="question-image" src="" alt="Imagen relacionada con la pregunta">
+        <div class="question" id="question">Cargando pregunta...</div>
+        <div class="options" id="options"></div>
+        <div id="result"></div>
+        <div id="final-score"></div>
+        <button id="retry-button" style="display: none;" onclick="retryGame()">Intentar de nuevo</button>
+    </div>
+    <script>
+        const questions = [
+            {
+                question: "¿Qué tipo de energía es mejor para el futuro?",
+                options: ["A) Petróleo y carbón", "B) Energía nuclear", "C) Energía solar y eólica"], 
+                answer: "C) Energía solar y eólica",
+                image: "imagen1.png"
+            },
+            {
+                question: "¿Qué impacto tiene la deforestación en el medio ambiente?",
+                options: ["A)Aumenta la biodiversidad", "B) Reduce la calidad del aire", "C)No tiene impacto"],
+                answer: "B) Reduce la calidad del aire",
+                image: "imagen2.jpg"
+            },
+            {
+                question: "¿Qué es mejor hacer con los plásticos?",
+                options: ["A) Tirarlos en cualquier parte porque se van a descomponer rápido", "B) Reutilizarlos y reciclarlos siempre que podamos.", "C) Dejar de usarlos completamente, incluso si es difícil"],
+                answer: "B) Reutilizarlos y reciclarlos siempre que podamos.",
+                image: "imagen3.jpg"
+            },
+            {
+                question: "¿Cómo podemos pescar sin dañar el océano?",
+                options: ["A) Limitar la cantidad de pesca para que el ecosistema se recupere.", "B) Pescar todo lo que podamos, siempre hay más peces.", "C) Dejar de pescar completamente."],
+                answer: "A) Limitar la cantidad de pesca para que el ecosistema se recupere.",
+                image: "imagen4.jpg"
+            },
+            {
+                question: "¿Cuál de las siguientes actividades humanas contribuye más al cambio climático?",
+                options: ["A) Uso de bicicletas", "B) Deforestación", "C) Energía solar", " E) Reciclaje de papel"],
+                answer: "B) Deforestación",
+                image: "imagen5.jpg"
+            },
+            {
+                question: "¿Cuál es una mejor opción para minimizar el impacto ambiental?",
+                options: ["A) Energía renovable", "B) Energía no renovable"],
+                answer: "A) Energía renovable",
+                image: "imagen6.jpg"
+            },
+            {
+                question: "¿Cómo se debe manejar el desecho de residuos electrónicos?",
+                options: ["A) Tirarlos a la basura", "B) Quemarlos ","C) Llevarlos a un centro de reciclaje" ],
+                answer: "C) Llevarlos a un centro de reciclaje",
+                image: "imagen7.jpg"
+            }
+        ];
+        
+        let currentQuestionIndex = 0;
+        let correctAnswers = 0;
 
-<h1>My First Heading</h1>
+        function loadQuestion() {
+            const questionElement = document.getElementById("question");
+            const optionsElement = document.getElementById("options");
+            const imageElement = document.getElementById("question-image");
+            optionsElement.innerHTML = "";
+            
+            let currentQuestion = questions[currentQuestionIndex];
+            questionElement.textContent = currentQuestion.question;
+            imageElement.src = currentQuestion.image;
+            
+            currentQuestion.options.forEach(option => {
+                let button = document.createElement("button");
+                button.textContent = option;
+                button.onclick = () => checkAnswer(option);
+                optionsElement.appendChild(button);
+            });
+        }
 
-<p>My first paragraph.</p>
+        function checkAnswer(selectedOption) {
+            const resultElement = document.getElementById("result");
+            if (selectedOption === questions[currentQuestionIndex].answer) {
+                resultElement.textContent = "¡Correcto!";
+                resultElement.style.color = "green";
+                correctAnswers++;
+            } else {
+                resultElement.textContent = "Incorrecto. Intenta de nuevo.";
+                resultElement.style.color = "red";
+            }
+            
+            setTimeout(() => {
+                resultElement.textContent = "";
+                currentQuestionIndex++;
+                if (currentQuestionIndex < questions.length) {
+                    loadQuestion();
+                } else {
+                    showFinalScore();
+                }
+            }, 2000);
+        }
 
+        function showFinalScore() {
+            const finalScoreElement = document.getElementById("final-score");
+            const retryButton = document.getElementById("retry-button");
+            finalScoreElement.textContent = `Tu calificación final es: ${correctAnswers} de ${questions.length}`;
+            retryButton.style.display = "block";
+        }
+
+        function retryGame() {
+            currentQuestionIndex = 0;
+            correctAnswers = 0;
+            document.getElementById("final-score").textContent = "";
+            document.getElementById("retry-button").style.display = "none";
+            loadQuestion();
+        }
+
+        loadQuestion();
+    </script>
 </body>
 </html>
