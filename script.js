@@ -179,9 +179,9 @@ function displayResult(result) {
 function restartDiagnosis() {
     document.getElementById('diagnostic-area').innerHTML = `
         <p class="question">¿Qué dispositivo estás teniendo problemas?</p>
-        <button class="answer-btn" onclick="askDevice('mouse')"> Mouse <img src="img/mouse.ico" alt="imagen" width="35"></button>
-        <button class="answer-btn" onclick="askDevice('monitor')"> Monitor <img src="img/monitor.ico" alt="imagen" width="35"></button>
-        <button class="answer-btn" onclick="askDevice('printer')"> Impresora <img src="img/impresora.ico" alt="imagen" width="35"></button>
-        <button class="answer-btn" onclick="askDevice('printer')"> Computadora <img src="img/computadora.ico" alt="imagen" width="35"></button>
+        <button class="answer-btn" onclick="askDevice('mouse')"> Mouse <img src="mouse.ico" alt="imagen" width="35"></button>
+        <button class="answer-btn" onclick="askDevice('monitor')"> Monitor <img src="monitor.ico" alt="imagen" width="35"></button>
+        <button class="answer-btn" onclick="askDevice('printer')"> Impresora <img src="impresora.ico" alt="imagen" width="35"></button>
+        <button class="answer-btn" onclick="askDevice('printer')"> Computadora <img src="computadora.ico" alt="imagen" width="35"></button>
     `;
 }
