@@ -1,0 +1,32 @@
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f9;
+            
+        }
+        h1 {
+            color: #333;
+        }
+        .question {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        .answer-btn {
+            padding: 10px 20px;
+            margin: 10px 0;
+            background-color: #76b8f3;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .answer-btn:hover {
+            background-color: #45a049;
+        }
+        #diagnosis {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #d9534f;
+        }
+    
