@@ -3,24 +3,339 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema Experto de Diagnóstico</title>
-    <link rel="stylesheet" href="style.css">  
-</head>
+    <title>¡Feliz Cumpleaños! 🎉</title>
+    <style>
+        body {
+            background: linear-gradient(45deg, #6a1b9a, #9c27b0);
+            color: white;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 15px;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .contenedor-principal {
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+            margin-top: 20px;
+        }
+
+        .lado-izquierdo {
+            flex: 1;
+            position: sticky;
+            top: 15px;
+        }
+
+        .lado-derecho {
+            flex: 2;
+            position: relative;
+        }
+
+        .flores {
+            margin: 20px 0;
+            font-size: 35px;
+            text-align: center;
+        }
+
+        .regalo {
+            cursor: pointer;
+            width: 180px;
+            max-width: 100%;
+            transition: transform 0.3s;
+            margin: 0 auto;
+            display: block;
+        }
+        .regalo img {
+    width: 100%;
+    height: auto;
+}
+
+        .regalo:hover {
+            transform: scale(1.1) rotate(-5deg);
+        }
+        .mensaje {
+    /* ... (mantén las propiedades existentes) ... */
+    text-align: center; /* Centrar todo el contenido */
+}
+
+.mensaje-imagen {
+    width: 80%;
+    max-width: 250px;
+    margin: 15px auto;
+    display: block;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+
+.mensaje-imagen:hover {
+    transform: scale(1.05);
+}
+
+/* Versión móvil */
+@media (max-width: 768px) {
+    .mensaje-imagen {
+        max-width: 180px;
+        margin: 10px auto;
+    }
+}
+        .mensaje {
+            display: none;
+            background: rgba(255, 255, 255, 0.95);
+            color: #6a1b9a;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 15px 0;
+            animation: aparecer 1s ease-out;
+            box-shadow: 0 0 20px rgba(0,0,0,0.15);
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 90%;
+        }
+
+        .video-section {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 40px;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        h1 {
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: titulo 2s infinite alternate;
+            text-align: center;
+            font-size: 2.2rem;
+            margin: 10px 0;
+        }
+
+        /* Animación globos */
+        .globo {
+            position: fixed;
+            width: 40px;
+            height: 50px;
+            border-radius: 50%;
+            bottom: -100px;
+            animation: flotar 10s linear infinite;
+            z-index: 1;
+            opacity: 0.9;
+        }
+
+        .globo::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 18px;
+            width: 2px;
+            height: 25px;
+            background: #fff;
+        }
+
+        @keyframes flotar {
+            0% { transform: translateY(0) translateX(0); }
+            50% { transform: translateX(15px); }
+            100% { transform: translateY(-100vh) translateX(-15px); }
+        }
+
+        @keyframes titulo {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes aparecer { jx
+            0% { opacity: 0; transform: translateY(15px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 300px) {
+            .contenedor-principal {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .lado-izquierdo {
+                position: static;
+                width: 100%;
+                text-align: center;
+            }
+            
+            .regalo {
+                width: 80%;
+                max-width: 300px;
+            }
+
+            .mensaje {
+                position: relative;
+                width: 100%;
+                margin: 15px auto;
+                top: auto;
+                right: auto;
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .flores {
+                font-size: 28px;
+                margin: 15px 0;
+            }
+
+            .video-section {
+                margin-top: 25px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 1.6rem;
+                margin: 8px 0;
+            }
+
+            .flores {
+                font-size: 24px;
+            }
+
+            .regalo {
+                max-width: 180px;
+            }
+
+            .mensaje {
+                padding: 12px;
+                font-size: 0.9rem;
+            }
+
+            .mensaje h2 {
+                font-size: 1.1rem;
+                margin: 8px 0;
+            }
+
+            .video-container {
+                margin: 0 5px;
+            }
+
+            .globo {
+                width: 30px;
+                height: 40px;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Globos animados -->
+    <div class="globos"></div>
 
-    <center><h1>Diagnóstico de Equipos de Cómputo</h1></center>
-<center>
-    <div id="diagnostic-area">
-        <p class="question">¿Qué dispositivo estás teniendo problemas?</p>
-        <button class="answer-btn" onclick="askDevice('mouse')"> Mouse <img src="mouse.ico" alt="imagen" width="35"></button>
-        <button class="answer-btn" onclick="askDevice('monitor')"> Monitor <img src="monitor.ico" alt="imagen" width="35"></button>
-        <button class="answer-btn" onclick="askDevice('printer')"> Impresora <img src="impresora.ico" alt="imagen" width="35"></button>
-        <button class="answer-btn" onclick="askDevice('equipo')"> Computadora <img src="computadora.ico" alt="imagen" width="35"></button>
-    </div>
-</center>
-    <div id="diagnosis"></div>
+    <div class="container">
+        <h1>🎉¡Feliz Cumpleaños Ana! 🎂</h1>
+        
+        <div class="flores">
+            🌸🌺🌼🌹🌻🌼🌺🌸
+        </div>
 
-    <script src="script.js"></script>
+        <div class="contenedor-principal">
+            <div class="lado-izquierdo">
+                <center><h2>Abre el Regalo</h2></center>
+                <div class="regalo" onclick="abrirRegalo()">
+                    <img src="https://img.icons8.com/color/96/000000/gift--v1.png" alt="Regalo">
+                </div>
+                <div id="mensajeEspecial" class="mensaje">
+                   <h2>¡Para la persona más especial! 🥰</h2>
+                    <p>En tu día quiero desearte mucha felicidad, amor y éxito en todo lo que emprendas. ¡Que todos tus sueños se hagan realidad! 🎂✨</p>
+                    <h2>Te quiero Mucho💙🌻✨</h2>
+                    <img src='https://somoskudasai.com/wp-content/uploads/2021/06/E5FB5LTVkAUnqv-.jpg' 
+                    alt="Imagen de celebración"
+                    class="mensaje-imagen">
+                </div>
+            </div>
+
+            <div class="lado-derecho">
+                <div class="video-section">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/F-MO5urVHN8" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+
+    <script>
+        function crearGlobos() {
+            const colores = ['#ff4081', '#f50057', '#c51162', '#ff80ab', '#ffffff', 
+                           '#9c27b0', '#e91e63', '#00bcd4', '#ffeb3b', '#4caf50'];
+            const globosContainer = document.querySelector('.globos');
+            
+            // Reducir globos en móvil
+            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+            const cantidad = isMobile ? 12 : 20;
+            
+            for(let i = 0; i < cantidad; i++) {
+                const globo = document.createElement('div');
+                globo.className = 'globo';
+                globo.style.left = Math.random() * 100 + 'vw';
+                globo.style.animationDelay = Math.random() * 5 + 's';
+                globo.style.background = colores[Math.floor(Math.random() * colores.length)];
+                globo.style.width = Math.random() * 20 + (isMobile ? 30 : 40) + 'px';
+                globo.style.height = Math.random() * 15 + (isMobile ? 35 : 50) + 'px';
+                globosContainer.appendChild(globo);
+            }
+        }
+
+        function abrirRegalo() {
+            const mensaje = document.getElementById('mensajeEspecial');
+            mensaje.style.display = 'block';
+            document.querySelector('.regalo').style.display = 'none';
+            
+            // Optimizar confeti para móvil
+            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+            const cantidadConfeti = isMobile ? 30 : 50;
+            
+            for(let i = 0; i < cantidadConfeti; i++) {
+                let confeti = document.createElement('div');
+                confeti.style.position = 'fixed';
+                confeti.style.width = '8px';
+                confeti.style.height = '8px';
+                confeti.style.backgroundColor = `hsl(${Math.random() * 360}deg, 100%, 50%)`;
+                confeti.style.left = Math.random() * 100 + 'vw';
+                confeti.style.top = Math.random() * 100 + 'vh';
+                confeti.style.borderRadius = '50%';
+                document.body.appendChild(confeti);
+                
+                setTimeout(() => confeti.remove(), 2000);
+            }
+        }
+
+        window.onload = crearGlobos;
+    </script>
 </body>
 </html>
