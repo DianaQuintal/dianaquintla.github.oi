@@ -1,341 +1,169 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>¡Feliz Cumpleaños! 🎉</title>
-    <style>
-        body {
-            background: linear-gradient(45deg, #6a1b9a, #9c27b0);
-            color: white;
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 15px;
-            overflow-x: hidden;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-        }
-
-        .contenedor-principal {
-            display: flex;
-            gap: 30px;
-            align-items: flex-start;
-            margin-top: 20px;
-        }
-
-        .lado-izquierdo {
-            flex: 1;
-            position: sticky;
-            top: 15px;
-        }
-
-        .lado-derecho {
-            flex: 2;
-            position: relative;
-        }
-
-        .flores {
-            margin: 20px 0;
-            font-size: 35px;
-            text-align: center;
-        }
-
-        .regalo {
-            cursor: pointer;
-            width: 180px;
-            max-width: 100%;
-            transition: transform 0.3s;
-            margin: 0 auto;
-            display: block;
-        }
-        .regalo img {
-    width: 100%;
-    height: auto;
-}
-
-        .regalo:hover {
-            transform: scale(1.1) rotate(-5deg);
-        }
-        .mensaje {
-    /* ... (mantén las propiedades existentes) ... */
-    text-align: center; /* Centrar todo el contenido */
-}
-
-.mensaje-imagen {
-    width: 80%;
-    max-width: 250px;
-    margin: 15px auto;
-    display: block;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    transition: transform 0.3s ease;
-}
-
-.mensaje-imagen:hover {
-    transform: scale(1.05);
-}
-
-/* Versión móvil */
-@media (max-width: 768px) {
-    .mensaje-imagen {
-        max-width: 180px;
-        margin: 10px auto;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>English Grammar Game 🎮</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background:#8bc8fe;;
+      padding: 20px;
     }
-}
-        .mensaje {
-            display: none;
-            background: rgba(255, 255, 255, 0.95);
-            color: #6a1b9a;
-            padding: 20px;
-            border-radius: 12px;
-            margin: 15px 0;
-            animation: aparecer 1s ease-out;
-            box-shadow: 0 0 20px rgba(0,0,0,0.15);
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 90%;
-        }
-
-        .video-section {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin-top: 40px;
-        }
-
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%;
-            overflow: hidden;
-            border-radius: 12px;
-            box-shadow: 0 0 15px rgba(0,0,0,0.2);
-        }
-
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
-
-        h1 {
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            animation: titulo 2s infinite alternate;
-            text-align: center;
-            font-size: 2.2rem;
-            margin: 10px 0;
-        }
-
-        /* Animación globos */
-        .globo {
-            position: fixed;
-            width: 40px;
-            height: 50px;
-            border-radius: 50%;
-            bottom: -100px;
-            animation: flotar 10s linear infinite;
-            z-index: 1;
-            opacity: 0.9;
-        }
-
-        .globo::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 18px;
-            width: 2px;
-            height: 25px;
-            background: #fff;
-        }
-
-        @keyframes flotar {
-            0% { transform: translateY(0) translateX(0); }
-            50% { transform: translateX(15px); }
-            100% { transform: translateY(-100vh) translateX(-15px); }
-        }
-
-        @keyframes titulo {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-
-        @keyframes aparecer { jx
-            0% { opacity: 0; transform: translateY(15px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-
-        @media (max-width: 300px) {
-            .contenedor-principal {
-                flex-direction: column;
-                gap: 20px;
-            }
-            
-            .lado-izquierdo {
-                position: static;
-                width: 100%;
-                text-align: center;
-            }
-            
-            .regalo {
-                width: 80%;
-                max-width: 300px;
-            }
-
-            .mensaje {
-                position: relative;
-                width: 100%;
-                margin: 15px auto;
-                top: auto;
-                right: auto;
-                padding: 15px;
-            }
-
-            h1 {
-                font-size: 1.8rem;
-            }
-
-            .flores {
-                font-size: 28px;
-                margin: 15px 0;
-            }
-
-            .video-section {
-                margin-top: 25px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            body {
-                padding: 10px;
-            }
-            
-            h1 {
-                font-size: 1.6rem;
-                margin: 8px 0;
-            }
-
-            .flores {
-                font-size: 24px;
-            }
-
-            .regalo {
-                max-width: 180px;
-            }
-
-            .mensaje {
-                padding: 12px;
-                font-size: 0.9rem;
-            }
-
-            .mensaje h2 {
-                font-size: 1.1rem;
-                margin: 8px 0;
-            }
-
-            .video-container {
-                margin: 0 5px;
-            }
-
-            .globo {
-                width: 30px;
-                height: 40px;
-            }
-        }
-    </style>
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #ccc;
+    }
+    .question {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+    }
+    .options button {
+      padding: 10px;
+      font-size: 1.5rem;
+      border: none;
+      background: #cce5ff;
+      border-radius:10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .options button:hover {
+      background: #1088ff;
+    }
+    .image {
+      height: 150px;
+      object-fit: contain;
+      margin: 10px auto;
+      display: block;
+    }
+    .score {
+      text-align: center;
+      font-size: 1.3rem;
+      margin-top: 20px;
+    }
+    .restart-btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      background: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .progress-container {
+      width: 100%;
+      background-color: #e0e0e0;
+      border-radius: 20px;
+      overflow: hidden;
+      margin-bottom: 20px;
+      height: 20px;
+    }
+    #progress-bar {
+      height: 100%;
+      width: 0%;
+      background-color: #4caf50;
+      transition: width 0.4s ease;
+    }
+  </style>
 </head>
 <body>
-    <!-- Globos animados -->
-    <div class="globos"></div>
+  <div class="container">
+     <h1 style="text-align:center;">🎯 English Game 🎯</h1>
+    <h4 style="text-align:center;">Summary of the topics previously seen</h4>
+      <h6 style="text-align:center;">Diana Laura Mutul Quintal</h6>
 
-    <div class="container">
-        <h1>🎉¡Feliz Cumpleaños Ana! 🎂</h1>
-        
-        <div class="flores">
-            🌸🌺🌼🌹🌻🌼🌺🌸
-        </div>
+    
+    <!-- Barra de progreso -->
+    <div class="progress-container">
+      <div id="progress-bar"></div>
+    </div>
 
-        <div class="contenedor-principal">
-            <div class="lado-izquierdo">
-                <center><h2>Abre el Regalo</h2></center>
-                <div class="regalo" onclick="abrirRegalo()">
-                    <img src="https://img.icons8.com/color/96/000000/gift--v1.png" alt="Regalo">
-                </div>
-                <div id="mensajeEspecial" class="mensaje">
-                   <h2>¡Para la persona más especial! 🥰</h2>
-                    <p>En tu día quiero desearte mucha felicidad, amor y éxito en todo lo que emprendas. ¡Que todos tus sueños se hagan realidad! 🎂✨</p>
-                    <h2>Te quiero Mucho💙🌻✨</h2>
-                    <img src='https://somoskudasai.com/wp-content/uploads/2021/06/E5FB5LTVkAUnqv-.jpg' 
-                    alt="Imagen de celebración"
-                    class="mensaje-imagen">
-                </div>
-            </div>
+    <!-- Juego -->
+    <div id="game"></div>
+  </div>
 
-            <div class="lado-derecho">
-                <div class="video-section">
-                    <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/F-MO5urVHN8" 
-                                frameborder="0" 
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                                allowfullscreen>
-                        </iframe>
-                    </div>
+  <script>
+    const questions = [
+      { q: "She ___ a doctor.", a: ["is", "are", "am"], correct: "is", img: "img1.jpg" },
+      { q: "We ___ friends.", a: ["are", "am", "is"], correct: "are", img: "img2.jpg" },
+      { q: "I ___ from Mexico.", a: ["am", "is", "are"], correct: "am", img: "img3.jpg" },
+      { q: "___ do you live?", a: ["Where", "Why", "What"], correct: "Where", img: "img4.jpg" },
+      { q: "___ is your name?", a: ["Where", "What", "Who"], correct: "What", img: "img5.jpg" },
+      { q: "___ are you late?", a: ["Why", "When", "How"], correct: "Why", img: "img6.jpg" },
+      { q: "___ you like pizza?", a: ["Do", "Does", "Did"], correct: "Do", img: "img7.jpg" },
+      { q: "___ she play guitar?", a: ["Do", "Does", "Is"], correct: "Does", img: "img8.jpg" },
+      { q: "___ they work here?", a: ["Do", "Does", "Are"], correct: "Do", img: "img9.jpg" },
+      { q: "She ___ every day.", a: ["runs", "run", "ran"], correct: "runs", img: "img10.jpg" },
+      { q: "We ___ to school.", a: ["go", "goes", "went"], correct: "go", img: "img11.jpg" },
+      { q: "He ___ football.", a: ["plays", "play", "played"], correct: "plays", img: "img12.jpg" },
+      { q: "I work ___ Monday.", a: ["on", "in", "at"], correct: "on", img: "img13.jpg" },
+      { q: "We meet ___ 3 PM.", a: ["at", "on", "in"], correct: "at", img: "img14.jpg" },
+      { q: "She was born ___ April.", a: ["in", "on", "at"], correct: "in", img: "img15.jpg" },
+      { q: "___ a cat on the roof.", a: ["There is", "There are", "Is there"], correct: "There is", img: "img16.jpg" },
+      { q: "___ two apples.", a: ["There is", "There are", "There be"], correct: "There are", img: "img17.jpg" },
+      { q: "___ a book on the table?", a: ["Is there", "Are there", "There is"], correct: "Is there", img: "img18.png" },
+      { q: "He runs ___ .", a: ["quickly", "quick", "quicker"], correct: "quickly", img: "img19.jpg" },
+      { q: "She sings ___ .", a: ["beautifully", "beautiful", "beauty"], correct: "beautifully", img: "img20.png" },
+      { q: "They arrived ___ .", a: ["late", "lately", "later"], correct: "late", img: "img21.jpg" }
+    ];
 
-    <script>
-        function crearGlobos() {
-            const colores = ['#ff4081', '#f50057', '#c51162', '#ff80ab', '#ffffff', 
-                           '#9c27b0', '#e91e63', '#00bcd4', '#ffeb3b', '#4caf50'];
-            const globosContainer = document.querySelector('.globos');
-            
-            // Reducir globos en móvil
-            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-            const cantidad = isMobile ? 12 : 20;
-            
-            for(let i = 0; i < cantidad; i++) {
-                const globo = document.createElement('div');
-                globo.className = 'globo';
-                globo.style.left = Math.random() * 100 + 'vw';
-                globo.style.animationDelay = Math.random() * 5 + 's';
-                globo.style.background = colores[Math.floor(Math.random() * colores.length)];
-                globo.style.width = Math.random() * 20 + (isMobile ? 30 : 40) + 'px';
-                globo.style.height = Math.random() * 15 + (isMobile ? 35 : 50) + 'px';
-                globosContainer.appendChild(globo);
-            }
-        }
+    let current = 0;
+    let score = 0;
 
-        function abrirRegalo() {
-            const mensaje = document.getElementById('mensajeEspecial');
-            mensaje.style.display = 'block';
-            document.querySelector('.regalo').style.display = 'none';
-            
-            // Optimizar confeti para móvil
-            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-            const cantidadConfeti = isMobile ? 30 : 50;
-            
-            for(let i = 0; i < cantidadConfeti; i++) {
-                let confeti = document.createElement('div');
-                confeti.style.position = 'fixed';
-                confeti.style.width = '8px';
-                confeti.style.height = '8px';
-                confeti.style.backgroundColor = `hsl(${Math.random() * 360}deg, 100%, 50%)`;
-                confeti.style.left = Math.random() * 100 + 'vw';
-                confeti.style.top = Math.random() * 100 + 'vh';
-                confeti.style.borderRadius = '50%';
-                document.body.appendChild(confeti);
-                
-                setTimeout(() => confeti.remove(), 2000);
-            }
-        }
+    function updateProgressBar() {
+      const progress = (current / questions.length) * 100;
+      document.getElementById("progress-bar").style.width = progress + "%";
+    }
 
-        window.onload = crearGlobos;
-    </script>
+    function renderQuestion() {
+      const game = document.getElementById("game");
+
+      if (current >= questions.length) {
+        game.innerHTML = `<div class='score'>You scored ${score} out of ${questions.length}</div>
+          <button class='restart-btn' onclick='restartGame()'>Play Again</button>`;
+        document.getElementById("progress-bar").style.width = "100%";
+        return;
+      }
+
+      const q = questions[current];
+      let html = `<center><div class='question'>${current + 1}: ${q.q}</div></center>`;
+      html += `<img src='${q.img}' alt='Image' class='image' />`;
+      html += `<div class='options'>`;
+      q.a.forEach(opt => {
+        html += `<button onclick='selectAnswer("${opt}")'>${opt}</button>`;
+      });
+      html += `</div>`;
+      game.innerHTML = html;
+
+      updateProgressBar();
+    }
+
+    function selectAnswer(answer) {
+      if (answer === questions[current].correct) {
+        score++;
+      }
+      current++;
+      renderQuestion();
+    }
+
+    function restartGame() {
+      current = 0;
+      score = 0;
+      renderQuestion();
+    }
+
+    window.onload = renderQuestion;
+  </script>
 </body>
 </html>
